@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,8 +21,8 @@ public class UsuarioController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
     private CustomUserDetailsService customUserDetailsService;
-
 
     @PostMapping("/login")
     public String login(UsuarioLoginDTO usuarioLoginDTO) {
@@ -33,8 +34,10 @@ public class UsuarioController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<UsuarioRegisterDTO> register(UsuarioRegisterDTO usuarioRegisterDTO) {
-        return null;
+    public ResponseEntity<UsuarioRegisterDTO> register(
+            @RequestBody UsuarioRegisterDTO usuarioRegisterDTO) {
+
+        return ResponseEntity.ok(customUserDetailsService.registerUser(usuarioRegisterDTO));
     }
 
 }

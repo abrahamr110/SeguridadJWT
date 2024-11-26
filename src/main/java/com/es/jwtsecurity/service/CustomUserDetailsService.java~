@@ -27,7 +27,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         return user;
     }
-    
+
+    @Override
     public UsuarioRegisterDTO registerUser(UsuarioRegisterDTO user) {
         if (usuarioRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new IllegalArgumentException("El nombre de usuario ya existe");
