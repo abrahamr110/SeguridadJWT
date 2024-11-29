@@ -2,10 +2,8 @@ package com.es.jwtsecurity.controller;
 
 import com.es.jwtsecurity.dto.UsuarioLoginDTO;
 import com.es.jwtsecurity.dto.UsuarioRegisterDTO;
-import com.es.jwtsecurity.model.Usuario;
-import com.es.jwtsecurity.service.CustomUserDetailsService;
+import com.es.jwtsecurity.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,7 +20,7 @@ public class UsuarioController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+    private UsuarioService customUserDetailsService;
 
     @PostMapping("/login")
     public String login(UsuarioLoginDTO usuarioLoginDTO) {
