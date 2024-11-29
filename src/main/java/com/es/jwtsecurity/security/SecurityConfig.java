@@ -40,13 +40,15 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/usuarios/register", "/usuarios/login").permitAll()
                         .requestMatchers("/usuarios/{nombre}").authenticated()
+                        .requestMatchers("/productos/{id}").authenticated()
+                        .requestMatchers("/productos/byNombre/{nombre}").authenticated()
+                        .requestMatchers("/productos/asc").authenticated()
+
                         .anyRequest().authenticated())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults())
                 .build();
     }
-
-
 
     @Bean
     public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration) throws Exception {
