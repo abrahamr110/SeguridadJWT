@@ -43,6 +43,6 @@ public class UsuarioController {
     public ResponseEntity<?> getUsuarioByNombre(@PathVariable String nombre) {
         return usuarioService.getAllByUsername(nombre)
                 .map(usuario -> ResponseEntity.ok(usuario))
-                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+                .orElse("Usuario no encontrado");
     }
 }

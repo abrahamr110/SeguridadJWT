@@ -11,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.User;
 
+import java.util.Optional;
+
 @Service
 public class UsuarioService implements UserDetailsService {
     @Autowired
@@ -38,5 +40,9 @@ public class UsuarioService implements UserDetailsService {
         usuarioRepository.save(newUser);
 
         return user;
+    }
+
+    public Optional<Usuario> getAllByUsername(String username) {
+        return usuarioRepository.findByUsername(username);
     }
 }
