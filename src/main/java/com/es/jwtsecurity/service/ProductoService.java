@@ -22,5 +22,7 @@ public class ProductoService {
         return productoRepository.findByNombre(nombre).orElse(null);
     }
 
-    public List<Producto> getAllByAsc() { return productoRepository.findAll(Sort.by(Sort.Direction.ASC)); }
+    public List<Producto> getAllByAsc() { return productoRepository.findAll(Sort.by(Sort.Direction.ASC,"nombre")); }
+
+    public List<Producto> getAllByDesc() { return productoRepository.findAll(Sort.by(Sort.Direction.DESC,"nombre")); }
 }

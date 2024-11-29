@@ -28,4 +28,9 @@ public class ProductoController {
     public ResponseEntity<List<Producto>> getAllByAsc() {
         return ResponseEntity.ok(productoService.getAllByAsc());
     }
+
+    @GetMapping("/productos/desc")
+    public ResponseEntity<List<Producto>> getAllByDesc() {
+        return ResponseEntity.ok(productoService.getAllByDesc());
+    }
 }
