@@ -25,4 +25,6 @@ public class ProductoService {
     public List<Producto> getAllByAsc() { return productoRepository.findAll(Sort.by(Sort.Direction.ASC,"nombre")); }
 
     public List<Producto> getAllByDesc() { return productoRepository.findAll(Sort.by(Sort.Direction.DESC,"nombre")); }
+
+
 }

@@ -43,10 +43,7 @@ public class SecurityConfig {
                         .requestMatchers("/productos/{id}").authenticated()
                         .requestMatchers("/productos/byNombre/{nombre}").authenticated()
                         .requestMatchers("/productos/asc").authenticated()
-                        .requestMatchers("/productos/desc").authenticated(
-
-                        )
-
+                        .requestMatchers("/productos/desc").authenticated()
                         .anyRequest().authenticated())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults())
